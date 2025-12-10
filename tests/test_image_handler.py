@@ -44,7 +44,7 @@ async def test_handle_image_message_success(mock_update, mock_context):
     mock_update.message.reply_text = AsyncMock(return_value=MagicMock())
     mock_update.message.reply_text.return_value.edit_text = AsyncMock()
 
-        with patch("app.handlers.image.classify_image") as mock_classify, patch(
+    with patch("app.handlers.image.classify_image") as mock_classify, patch(
         "app.handlers.image.log_event", new_callable=AsyncMock
     ) as mock_log:
         mock_classify.return_value = [("cat", 0.95), ("dog", 0.03), ("bird", 0.02)]
