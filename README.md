@@ -327,21 +327,35 @@ The bot sends events to the configured n8n webhook URL for each interaction:
 
 ## 🧪 Testing
 
-Run tests with pytest:
+The project uses pytest for unit testing. Tests require a `TELEGRAM_BOT_TOKEN` environment variable to be set.
+
+### Quick Start
 
 ```bash
 # Install test dependencies
-uv pip install -e ".[dev]"
+pip install -e ".[dev]"
 
 # Run all tests
-pytest
+TELEGRAM_BOT_TOKEN=test_token pytest -v
 
 # Run with coverage
-pytest --cov=app --cov-report=html
+TELEGRAM_BOT_TOKEN=test_token pytest --cov=app --cov-report=html
 
 # Run specific test file
-pytest tests/test_text_handler.py
+TELEGRAM_BOT_TOKEN=test_token pytest tests/test_text_handler.py
 ```
+
+### Detailed Testing Guide
+
+For comprehensive testing instructions, troubleshooting, and best practices, see [TESTING.md](TESTING.md).
+
+The testing guide covers:
+- Complete setup instructions
+- Environment configuration
+- Running tests with different options
+- Writing new tests
+- Known issues and solutions
+- CI/CD integration examples
 
 ## 🐳 Docker Deployment
 
